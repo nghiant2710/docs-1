@@ -1,15 +1,18 @@
+path = require('path')
+
 config = require('./index')
-links: require('./links')
+links = require('./links')
+
+root = path.resolve(__dirname, '..')
 
 module.exports = {
   docsExt: config.docsExt
-  docsSource: config.docsSourceDir
-  docsDest: config.docsDestDir
+  docsSource: path.join(root, config.docsSourceDir)
+  docsDest: path.join(root, config.docsDestDir)
   metaExtra: (fileName, fileObj) ->
     improveDocsLink: "#{config.editPageLink}/#{config.docsSourceDir}/#{fileName}"
     $links: links
-  layoutLocals:
-    mainSiteUrl: MAIN_SITE
-    dashboardUrl: DASHBOARD_SITE
-    menuLinks: MAIN_MENU_LINKS
+  layoutLocals: config.layoutLocals
+  serializeNav: path.join(root, 'server', 'nav.json')
+  buildLunrIndex: path.join(root, 'server', 'lunr_index.json')
 }
