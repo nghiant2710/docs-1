@@ -1,3 +1,4 @@
-pn = require('../lib/parse-nav')
+doxx = require('@resin/doxx')
+doxxConfig = require('./config/doxx')
 
-pn.pp(pn.parse())
+doxx.nav.pp(doxx.nav.parse(doxxConfig))

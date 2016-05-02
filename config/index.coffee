@@ -43,7 +43,7 @@ module.exports =
   docsDestDir: DOCS_DEST_DIR
   editPageLink: GITHUB_EDIT_PAGE_LINK
   links: require('./links')
-  templateLocals:
+  layoutLocals:
     mainSiteUrl: MAIN_SITE
     dashboardUrl: DASHBOARD_SITE
     menuLinks: MAIN_MENU_LINKS
